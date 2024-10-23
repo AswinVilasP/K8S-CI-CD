@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-beta
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: "/"
+spec:
+  rules:
+    - host: nginx.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginxweb-service
+                port:
+                  number: 80
+          - path: /django
+            pathType: Prefix
+            backend: 
+              service:
+                name: django-app
+                port:
+                  number: 8000
+          - path: /flask
+            pathType: Prefix
+            backend:
+              service: 
+                name: flask-app
+                port: 
+                  number: 5000
+                             

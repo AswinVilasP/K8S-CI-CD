@@ -1,5 +1,6 @@
 FROM python:latest
-WORKDIR /srv
+WORKDIR /app
+COPY requirements.txt /app/requirements.txt
 COPY .  .
 RUN pip install -r requirements.txt
 EXPOSE 5000

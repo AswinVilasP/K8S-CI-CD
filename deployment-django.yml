@@ -15,5 +15,6 @@ spec:
       containers:
       - name: django-app
         image: aswinvilasp/django_app:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8000
